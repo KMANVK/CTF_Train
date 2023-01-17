@@ -1,0 +1,47 @@
+Trong lĩnh vực Forensics, công cụ là thứ không thể thiếu sau kiến thức và với mỗi loại thì thường có những công cụ chuyên dụng. Bạn sẽ thấy rõ điều này qua bài này và các bài chi tiết khác về sau. Với Network Forensics, chúng ta có 
+• Wireshark(https://vietnix.vn/wireshark-la-gi/), Network Miner bắt và phân tích gói tin với giao diện đồ họa
+• Tcpdump phân tích gói tin với giao diện console
+• p0f dùng để phát hiện hệ điều hành, console trên nền Linux
+• netcat, debug kết nối, đóng vai trò cả client và server, console trên windows và linux
+• Snort, opensource phát hiện xâm nhập
+• Nmap, tcpxtract, ssldump, nslookup, maxmind... và rất nhiều công cụ khác
+• TweakPNG (chỉnh độ dài và rộng của ảnh )
+• Docker : + https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository
+           + https://www.youtube.com/watch?v=9Gf4vRYSkK8
+• Tshark : https://whitehat.vn/threads/huong-dan-ket-xuat-va-phan-tich-luu-luong-mang-voi-tshark.13280/
+• OpenSSL :+ https://www.keycdn.com/blog/openssl-tutorial
+           + https://www.openssl.org/docs/man1.1.1/man1/openssl-dgst.html
+• Chmod : + https://beginer.com/chmod-la-gi-cach-chmod-de-bao-mat-website-tot-nhat-bang-filezilla/
+          + https://bkhost.vn/blog/chmod-la-gi/
+* Osint : + https://windows789.com/cach-tim-hinh-anh-tuong-tu-truc-tuyen-bang-tim-kiem-hinh-anh-dao-nguoc
+* Stegsolve : https://github.com/zardus/ctf-tools/blob/master/stegsolve/install
+
+* Các Lệnh Dùng Trong Linux : 
+1.Trích xuất các ký tự và nối chúng lại trong nhiều tệp văn bản tách rời : 
++ $for i in {0..21}; do cat $i >> output.txt; done && cat output.txt
++ $for i in {0..21}; do python crack.py $i.zip 2>/dev/null | grep "$i :" >> output.txt; done && cat output.txt ( dùng tệp crack.py để mở khóa trong nhiều file .zip).
+2. Lệnh mở Stegsolve : $java -jar Stegsolve.jar
+3. Lệnh mã hóa aes 256 của base64 : $openssl enc -d -aes-256-cbc -iv (mã 16b)  -K (mã 32b)  -in flag.enc -out flag -base64 
++Ví dụ Bài The Keymaker(CTFLearn).
+4.Lệnh Update Linux : $sudo apt update.
+5.Lệnh ssh(à một giao thức mạng dùng để thiết lập kết nối mạng một cách bảo mật) : $ssh -i file_name -p port(cổng) URL(địa chỉ trang wed).
+ví dụ : ssh -i ed25519 -p 56531 ctf-player@saturn.picoctf.net(bài Operation Oni picoCTF với port là 56531 phụ thuộc vào mỗi lần khởi chạy).
+6.Lệnh chmod để fix lỗi bad permission (đọc thêm tài liệu chmod ở phần trên ) : $chmod 600 file_name ( có thể đổi 600 thành nhiều số khác như 777,755,644,400,700...).
+
+*Wed test pictures : https://29a.ch/photo-forensics/#forensic-magnifier
+
+*Tool File âm thanh :                                                   
++https://www.reddit.com/r/computerforensics/comments/8uo5sh/links_to_audio_steganography_tools/
++https://github.com/DominicBreuker/stego-toolkit/blob/master/README.md#tools
+
+*Wed điều chỉnh các bytes trong files : https://en.wikipedia.org/wiki/List_of_file_signatures
+
+*Dùng visualVM để phân tích bộ nhớ kết xuất đống
+_Ví Dụ : Bài Dumpster: dùng visualVM để mở file heapdump.hprof => tìm passHash
+
+*Wed phân tích ảnh : https://cyber.meme.tips/jpdump
+
+*Wed decode các loại mật mã :https://rumkin.com/tools/cipher/
+
+*Wed hướng dẫn giải mã file âm thanh ra hình ảnh bằng sửa dụng qsstv : https://ourcodeworld.com/articles/read/956/how-to-convert-decode-a-slow-scan-television-transmissions-sstv-audio-file-to-images-using-qsstv-in-ubuntu-18-04
+*Công Cụ Autopsy : https://cehvietnam.com/2021/05/14/huong-dan-toan-dien-ve-cong-cu-autopsy-windows/

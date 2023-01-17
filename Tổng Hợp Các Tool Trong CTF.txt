@@ -1,0 +1,180 @@
+*Công cụ để bẻ khóa mật khẩu và tấn công nhiều hướng phổ biến khác nhau ( tuy nhiên đối với mk mạnh thì công cụ mất rất nhiều thời gian ) :  _Brute Force_
+---------------------------------------------------------------
+*WED Dịch mật mã CAESAR : https://www.dcode.fr/caesar-cipher
+*Wed dịch mã morse và audition bằng âm thanh : https://morsecode.world/international/decoder/audio-decoder-adaptive.html
+---------------------------------------------------------------
+*Header basic authorization của chúng ta có cú pháp như sau:
+-----Authorization: Basic <thong_tin_dang_nhap>-----
+---------------------------------------------------------------
+*Trong Javascript có tồn tại một hàm rất hay là toString(). Gọi nó và nó sẽ trả lại một chuỗi toàn bộ mã nguồn của hàm bất kỳ. Để mình biểu diễn cho các bạn xem. Để kiểm tra nội dung hàm verifyUsername(), ta sẽ gõ dòng này vào console:
+-----console.log(verify.......toString())-------
+VD :console.log(verifyUsername.toString())
+=> Tìm đc tên đăng nhập.
+VD :console.log(verifyRole.toString())
+=> Tìm đc role (lưu ý dùng nếu cho role.charCodeAt(0) != 64 => dùng kí tự ascii để tìm ra mã : 64 <=> @)-------------------------------
+*Muốn tìm cookie : Nhấp tổ hợp phím Fn + F12 => tìm Application => tìm cookies.
+-------------------------------------------------------------------
+*File .htaccess được sử dụng để cấu hình Apache Web Server, dùng để bật/tắt các tính năng mà Apache hỗ trợ:
+VD: http://chal16.web.letspentest.org/.htaccess
+-------------------------------------------------------------------
+*File thứ hai ta cũng cần để ý đến là file web.config:
+VD: http://chal16.web.letspentest.org/wed.config
+-------------------------------------------------------------------
+*Khi tải flie nhưng chưa mã nguồn khó hiểu => Giải nén flie => Tìm hiểu file là gì và giải nó
+-------------------------------------------------------------------
+*Wed để dịch mã xor cipher: --https://www.dcode.fr/xor-cipher
+-------------------------------------------------------------------
+*Wed github của cookie hân hoan :                                      https://github.com/cookiehanhoan/HoangTuEch
+-------------------------------------------------------------------
+*Khi truy cứu 1 địa chỉ IP hay 1 post bất kì ta dùng nmap:
+-------- Cú pháp : Địa chỉ IP: cổng mạng(Post)--------
+Vd: 93.13.33.22:5555
+-------------------------------------------------------------------
+*Để giải mật mã về giao thức FTP dùng Nmap để tìm host và post sau đó sử dụng FileZilla để đăng nhập và lấy Flag.
+*Tập tin em đang có trong tay chính là một đoạn trích xuất nội dung gói tin mạng ra vào của máy tính nạn nhân trong khoảng thời gian anh ta bị lừa đảo. Em hãy tìm ra địa chỉ trang web lừa đảo ấy là gì và gửi ngay cho BTC nhé!
+
+Ví dụ:
+Trang web lừa đảo là http://luadao.com thì
+Định dạng flag sẽ là CTF{http://luadao.com}
+----- CÁCH GIẢI : Sử dụng wireshark => nhấn chuột phải vào giao diện chính và chọn follow => tìm đc tên wed bị đánh cắp.
+---------------------------------------------------------------
+*Em tìm thấy một máy tính cổ ra đời năm 19xx, thân máy vẫn còn bám bụi, ngay cả nhựa của vỏ máy cũng nhuốm màu vàng của sự cũ kỹ.
+
+Trên màn hình máy tính CRT, hiện lên 2 dòng mã nguồn hợp ngữ. Em hãy tìm ra kết quả của thanh ghi EAX sau khi thực thi đoạn hợp ngữ này nhé:
+
+MOV EAX, 0x3A  
+ADD EAX, 0x21
+Ví du: EAX là 0x1A thì flag sẽ là CTF{0x1A} (in hoa tất cả)
+-----Cách giải : nhận dang 0x3A và 0x21 là mã hex => sử dụng máy tính có sắn trong máy chuyển sang chế độ programmer => 3A +21 = 5B => Flag : {0x5B}
+---------------------------------------------------------------
+*Ở độ khó tiếp theo, đoạn mã hợp ngữ trở nên dài hơn. Em hãy tính toán và tìm ra kết quả của thanh ghi EBX sau khi thực thi 4 lệnh hợp ngữ dưới đây:
+
+MOV EAX,0x41414141
+PUSH EAX
+POP  EBX
+SUB  EBX,0x2A
+Ví du: Kết quả của thanh ghi EBX là 0x1A thì flag sẽ là CTF{0x1A} (in hoa tất cả)
+-----Cách giải : Nhìn kĩ các câu lại ta lại thấy quen thuộc MOV EAX,0x41414141 hiểu ngay lúc ngày EAX đang có giá trị là 0x41414141, tiếp tục tìm hiểu thêm thì thì biết được PUSH EAX nghĩa là cất giá trị của EAX vào 1 ngăn xếp POP là lấy ra trị ra nhưng điều đặc biệt ở đây là cái nào cất sau cùng sẽ lấy ra đầu tiên , nên giá trị lấy của POP ra thì nó được lưu vào vào EBX khi đó EBX có giá trị bằng 0x41414141. Đơn giản với lệnh SUB hiểu hay nó là trừ. Bài toán đến đây đơn giản có ngay kết quả là 0x41414117 => Flag: {0x41414117}
+---------------------------------------------------------------
+* Ở lệnh if thứ 2 ta mở console và chạy đoạn code: String.fromCharCode(53, 49) nhận được kết quá là 2 ký tự “51”
+Vì (53+49)/2 = 51.(1)
+*Trong JS khi cộng 1 ký tự với 1 số hoặc cộng 2 ký tự ta sẽ được chuỗi chính là ký tự và số đó Ví dụ khi cộng ký tự 5 với số 1 ta sẽ được chuỗi là “51”.(2)
+-----Vd: password[1] + 1 = String.fromCharCode(53, 49)
+Từ (1) và (2) =>  password[1] + 1 = String.fromCharCode(53, 49) = “51” => password[1] = 5.
+*Lệnh if thứ 3 charCodeAt() sẽ trả về giá trị Unicode của một ký tự tại một vị trí được xác định trong chuỗi :
+Vd: password.charCodeAt(5) != 8 * 6 = 48 => trong mã ascii tương đương với số 0 => password(5) = 0
+-------------------------------------------------------------
+*Ứng dụng để so sánh sự khác nhau giữa 2 đoạn văn :https://www.diffchecker.com/diff.
+---------------------------------------------------------------
+*Song song đó, Linux lại là một hệ điều hành mã nguồn mở và miễn phí được ra đời trước cả Windows tận 4 năm bởi Linus Torvalds.
+
+Linux là một môi trường rất phù hợp với những người muốn tìm hiểu sâu về máy tính. Điểm mạnh của Linux so với Windows là được xây dựng và đóng góp bởi hàng triệu lập trình viên trên thế giới.
+
+Có rất nhiều phiên bản Linux phù hợp với lứa tuổi học sinh như Kano OS, Edubuntu
+
+Edubuntu: https://www.edubuntu.org/
+Kano OS: https://github.com/KanoComputing/terminal-quest
+Cũng nói thêm, ssh là một giao thức cho phép em thiết lập một kết nối an toàn đến một máy chủ từ xa. Để có thể thiết lập một kết nối an toàn, người dùng phải thông qua phần chứng thực của máy chủ từ xa, thông thường là dựa vào tên người dùng và mật khẩu. Để kết nối tới một máy chủ, ta sử dụng câu lệnh ssh:
+---ssh {địa chỉ của máy chủ}---.
+Và nhập mật khẩu. Mặc định, tên người dùng ta muốn kết nối sẽ là tên người dùng của máy tính hiện tại. Nếu muốn chỉ định một tên người dùng khác, ta sử dụng như sau:
+---ssh{tên người dùng}@{địa chỉ của máy chủ}---.
+---------------------------------------------------------------
+*Dưới đây là đoạn mã nguồn bằng ngôn ngữ lập trình C. Em hãy cho biết giá trị của biến b là bao nhiêu?
+int buffer[3] = {0x1234,0x2456,0x4567};
+int *a = buffer;
+int b = a[2]*0x4141;
+---Lời giải:
++int buffer[3] = {0x1234,0x2456,0x4567}<=>a[0],a[1],a[2].
+=> b = 4567*4141 =11B0 C627(theo dạng hex)
+=> Flag{0x11B0C627}---.
+*Wed chuyển đổi các hệ số online :https://www.convertworld.com/vi/chu-so/nhi-phan.html
+-------------------------------------------------------------------
+  *HTTP và HTTPS đều là hai giao thức giúp trình duyệt của bạn truy cập, tương tác với các trang Web. Tuy nhiên khi sử dụng giao thức HTTP để truy cập Web ở một quán cà phê hay trong cùng một khu trọ thì tất cả các nội dung trao đổi nhạy cảm, cũng như mật khẩu của bạn trên Web đều có thể nghe lén.
+  -Còn HTTPS (chữ S có nghĩa là Secure - Bảo mật) sinh ra để mã hóa dữ liệu trong quá trình trao đổi giữa trình duyệt và máy chủ bằng một chiếc Chứng chỉ (Certificate) network-insecure.letspentest.org 9004
+Truy cập http://network-insecure.letspentest.org:9004. Không hỗ trợ giao thức HTTP.
+=> Đổi lại thành https://network-insecure.letspentest.org:9004
+=> Chọn Advanced, đi đến view certificate:
+=> tìm đc Flag.
+-------------------------------------------------------------------
+*Wed code các mã băm trong ctf: https://kt.gy/tools.html#conv/%00%C3%80%0D6%C3%84
+-------------------------------------------------------------------
+*Wed bẻ khóa mật khẩu băm miên phí : https://crackstation.net/
+--------------------------------------------------------------------*Wed phân tích máy phổ âm thanh : https://academo.org/demos/spectrum-analyzer/
+-------------------------------------------------------------------
+*Wed Steganographic Decoder : https://futureboy.us/stegano/decinput.html
+-------------------------------------------------------------------
+*Wed decode tweet -> Hidden massage : https://holloway.nz/steg/
+-------------------------------------------------------------------
+*Wed giải mã Decabit Code :https://www.dcode.fr/decabit-code
+Ví dụ : +-+---+-++ -++---+++- -+++--+-+- -+++--+-+- -+---++++- ++-+-+-+-- +--++++--- -+---++++- -++---+++- --+++++--- +---+++-+- ++-++---+- -+--+-+++- +-+++---+- ---+++-++- +--+-+-++- +++-++---- -+-+++--+- ++-++---+- ++---+-++- ++-++---+- -+--+-+++- +++-++---- +-+---+++- +--+-+-++- -+--+-+++- +-+++---+- ++---+-++- -+-+++--+- ++-+-++--- -+++-+-+-- ++---+-++- -++++---+- ++-++---+- -++++---+- +---++++-- ----+++++-
+Decode => OFPPT-CTF{d3c4b17_3l3c7r1c4l_pul535!}
+-------------------------------------------------------------------
+*Wed phân tích ảnh cực xịn xò : https://aperisolve.fr/4a667c9ccefcc6078e7046992b3f201b
+-------------------------------------------------------------------
+*Wed code mọi loại mã :https://gchq.github.io/CyberChef/
+vd: Decode mã From Decimal(space)
+70, 76, 65, 71, 32, 73, 83, 32, 58, 32, 79, 70, 80, 80, 84, 45, 67, 84, 70, 123, 76, 48, 103, 115, 95, 114, 50, 118, 51, 52, 108, 51, 100, 95, 83, 81, 76, 95, 49, 110, 106, 51, 99, 116, 49, 48, 110, 125
+=>FLAG IS : OFPPT-CTF{L0gs_r2v34l3d_SQL_1nj3ct10n}
+-------------------------------------------------------------------
+*Wed giải mã âm thanh MIDI : https://onlinesequencer.net/import
+-------------------------------------------------------------------
+*Wed decode các loại mã nhị phân -> Thập lục phân,mã băm,mã RSA : https://kt.gy/tools.html#conv/
+-------------------------------------------------------------------
+*Wed decode và encode các thuật toán như HS256,RS256,...:
+https://jwt.io/
+-------------------------------------------------------------------
+*Github của wed assembly : https://github.com/WebAssembly
+-------------------------------------------------------------------
+*Wed tính toán mã xor :https://toolslick.com/math/bitwise/xor-calculator
+-------------------------------------------------------------------
+*Wed về cách dùng câu lệnh git : https://git-scm.com/docs/user-manual#repositories-and-branches
+-------------------------------------------------------------------
+*Wed giải mã tự động và nhanh chóng về Substitution Cipher,casear Cipher: https://www.quipqiup.com/
+-------------------------------------------------------------------
+*Wed decode mã polybius-square(5x5) :  https://cryptii.com/pipes/polybius-square
+-------------------------------------------------------------------
+*Wed decode Keyboard shift cipher : https://www.dcode.fr/keyboard-shift-cipher
+-------------------------------------------------------------------
+*Wed decode mã Playfair Cipher (5x5) : 1.https://www.boxentriq.com/code-breaking/playfair-cipher
+2.http://rumkin.com/tools/cipher/playfair.php
+-------------------------------------------------------------------
+*Wed làm chậm ảnh gif : https://ezgif.com/speed
+-------------------------------------------------------------------
+*Wed Xor calculator : https://xor.pw/
+-------------------------------------------------------------------
+*Wed đổi text bằng Base64 to hex : https://cryptii.com/
+-------------------------------------------------------------------
+*Wed phát hiện các âm DTMF (quay số âm) : http://dialabc.com/sound/detect/index.html
+-------------------------------------------------------------------
+*Wed chuyển decimal to ASCII : https://onlineasciitools.com/convert-decimal-to-ascii
+*Wed chuyển decimal to hex : https://www.rapidtables.com/convert/number/decimal-to-hex.html
+-------------------------------------------------------------------
+*Debug : GET is_debug=1 --> /?is_debug=1
+-------------------------------------------------------------------
+* public function __destruct(){
+		if ($this->message=="DucBTTBcuD"){
+			unserialize(base64_decode($this->username));
+
+=> mã nguồn xuất hiện sau khi gửi chuỗi truy vấn
+
+Sau khi tìm kiếm thông tin về “unserialize”, tôi thấy rằng “ unserialize () lấy chuỗi được tuần tự hóa, chỉ định lớp của đối tượng sẽ được tạo và các thuộc tính của đối tượng đó. Với dữ liệu đó, unserialize () tạo một bản sao của đối tượng được tuần tự hóa ban đầu. Sau đó, nó sẽ tìm kiếm một hàm có tên __wakeup () và thực thi mã trong hàm đó nếu nó được định nghĩa cho lớp. __wakeup () được gọi để tái tạo lại bất kỳ tài nguyên nào mà đối tượng có thể có. ”
+
+Có nghĩa là tôi cần chuyển một chuỗi được tuần tự hóa, chỉ định lớp “getFileSystem”
+=> O:13:"getFileSystem":0:{} => encode base64
+-------------------------------------------------------------------
+*Wed online 3D viewer :https://3dviewer.net/
+-------------------------------------------------------------------
+*Wed Tính Integer factorization calculator(tính toán thừa số nguyên ): https://www.alpertron.com.ar/ECM.HTM
+-------------------------------------------------------------------
+*Wed extract file PDF : 1)https://www.pdfconvertonline.com/extract-pdf-fonts-online.html
+                        2)https://www.extractpdf.com/
+-------------------------------------------------------------------
+* jctf|y0u_f0und_7h3_f1ag'.split('|'),0,{}=> jctf{y0u_f0und_7h3_f1ag!}
+-------------------------------------------------------------------
+* Tool Wed :+XSS:https://cheatsheetseries.owasp.org/cheatsheets/XSS_Filter_Evasion_Cheat_Sheet.html
+-------------------------------------------------------------------
+*Wed decode qr online : https://zxing.org/w/decode
+-------------------------------------------------------------------
+
+
+
